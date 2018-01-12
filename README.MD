@@ -8,7 +8,8 @@
 ### technologies 
 
 * DB - MySQL
-* Java - Spring Boot - Spring Eco-System
+* Java - Spring Boot - Spring Eco-System 
+* MAVEN
 * GraphQL - Java / JS 
 * ReactJs  
 * React Native  
@@ -50,9 +51,9 @@ GraphQl servers:
 ...* Port: 8287
 
 #### Chaque Microservice est une app CRUD
-* Un compsant list
-* Un compsant Details (Ajout Suppression Consultation, Modification)
-* Un compsant Recherche 
+* Un composant list
+* Un composant Details (Ajout Suppression Consultation, Modification)
+* Un composant Recherche 
 
 En gros ce qui est proposé est que l’on s’occupe chacun d’une partie de l’application full stack. De la DB au Front end React Native en passant par GraphQL .
 
