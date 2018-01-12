@@ -33,12 +33,12 @@ public class DetailsController {
 		
 	}
 	
-/*	public ResponseEntity<Details> createDetails(@RequestBody Details details) {
-		
-		Details detailsCreated = this.detailsService.createDetails(details, propertyId)
-		
-	}
-	*/
+//	public ResponseEntity<Details> createDetails(@RequestBody Details details) {
+//		
+//		Details detailsCreated = this.detailsService.createDetails(details, propertyId)
+//		
+//	}
+	
 	
 
 }

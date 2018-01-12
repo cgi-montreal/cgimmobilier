@@ -4,6 +4,7 @@ import java.util.List;
 
 import cgimmobilier.mb.properties.dto.PropertyDto;
 import cgimmobilier.mb.properties.entities.Property;
+import vo.PropertyVo;
 
 /**
  * 
@@ -16,6 +17,6 @@ public interface PropertyService {
 	
 	PropertyDto findOneById(Integer id);
 	
-	PropertyDto createProperty(Property property);
+	PropertyDto createProperty(PropertyVo propertyVo);
 
 }

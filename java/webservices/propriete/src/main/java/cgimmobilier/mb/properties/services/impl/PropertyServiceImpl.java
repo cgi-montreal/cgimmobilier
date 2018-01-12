@@ -10,6 +10,7 @@ import cgimmobilier.mb.properties.entities.Property;
 import cgimmobilier.mb.properties.mappers.PropertyMapper;
 import cgimmobilier.mb.properties.repository.PropertyRepository;
 import cgimmobilier.mb.properties.services.PropertyService;
+import vo.PropertyVo;
 
 /**
  * 
@@ -43,7 +44,9 @@ public class PropertyServiceImpl implements PropertyService {
 	}
 
 	@Override
-	public PropertyDto createProperty(Property property) {
+	public PropertyDto createProperty(PropertyVo propertyVo) {
+		
+		Property property = this.propertyMapper.mapPropertyVoToProperty(propertyVo);
 		
 		Property propertyCreated = this.propertyRepository.save(property); 
 		

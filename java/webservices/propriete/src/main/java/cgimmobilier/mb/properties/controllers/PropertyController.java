@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import cgimmobilier.mb.properties.dto.PropertyDto;
 import cgimmobilier.mb.properties.entities.Property;
 import cgimmobilier.mb.properties.services.PropertyService;
+import vo.PropertyVo;
 
 /**
  * 
@@ -45,9 +46,9 @@ public class PropertyController {
 	}
 	
 	@RequestMapping(value="/properties", method=RequestMethod.POST)
-	public ResponseEntity<PropertyDto> createProperty(@RequestBody Property property) {
+	public ResponseEntity<PropertyDto> createProperty(@RequestBody PropertyVo propertyVo) {
 		
-		PropertyDto propertyDto = this.propertyService.createProperty(property);
+		PropertyDto propertyDto = this.propertyService.createProperty(propertyVo);
 		
 		return new ResponseEntity<PropertyDto>(propertyDto, HttpStatus.CREATED);
 	}

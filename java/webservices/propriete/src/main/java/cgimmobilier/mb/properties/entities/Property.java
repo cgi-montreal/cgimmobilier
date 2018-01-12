@@ -24,7 +24,7 @@ public class Property {
 	private String description;
 	
 	@OneToOne
-	@JoinColumn(name="ID")
+	@JoinColumn(name="id")
 	private Details details;
 
 	public Integer getId() {
