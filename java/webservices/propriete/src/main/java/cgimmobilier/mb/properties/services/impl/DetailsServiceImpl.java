@@ -3,8 +3,10 @@ package cgimmobilier.mb.properties.services.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import cgimmobilier.mb.properties.dto.DetailsDto;
 import cgimmobilier.mb.properties.entities.Details;
 import cgimmobilier.mb.properties.entities.Property;
+import cgimmobilier.mb.properties.mappers.DetailsMapper;
 import cgimmobilier.mb.properties.repository.DetailsRepository;
 import cgimmobilier.mb.properties.repository.PropertyRepository;
 import cgimmobilier.mb.properties.services.DetailsService;
@@ -23,24 +25,34 @@ public class DetailsServiceImpl implements DetailsService {
 	@Autowired
 	private DetailsRepository detailsRepository;
 	
+	@Autowired
+	private DetailsMapper detailsMapper;
+	
 	@Override
-	public Details findOneById(Integer id) {
-		return this.detailsRepository.findOneById(id);
+	public DetailsDto findOneById(Integer id) {
+		Details details = this.detailsRepository.findOneById(id);
+		
+		return this.detailsMapper.mapDetailsToDetailsDto(details);
 	}
 	
 	@Override
-	public Details findOneByPropertyId(Integer propertyId) {
-		return this.detailsRepository.findOneByPropertyId(propertyId);
+	public DetailsDto findOneByPropertyId(Integer propertyId) {
+		Details details = this.detailsRepository.findOneByPropertyId(propertyId);
+		
+		return this.detailsMapper.mapDetailsToDetailsDto(details);
 	}
 
 	@Override
-	public Details createDetails(Details details, Integer propertyId) {
+	public DetailsDto createDetails(Details details, Integer propertyId) {
 		
 		Property property = this.propertyRepository.findOneById(propertyId);
 		
 		details.setProperty(property);
 		
-		return this.detailsRepository.save(details);
+		Details detailsCreated = this.detailsRepository.save(details);
+		
+		return this.detailsMapper.mapDetailsToDetailsDto(detailsCreated);	
+		
 	}
 
 }

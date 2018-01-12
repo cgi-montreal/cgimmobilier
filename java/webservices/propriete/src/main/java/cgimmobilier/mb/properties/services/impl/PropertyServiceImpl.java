@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cgimmobilier.mb.properties.dto.PropertyDto;
 import cgimmobilier.mb.properties.entities.Property;
+import cgimmobilier.mb.properties.mappers.PropertyMapper;
 import cgimmobilier.mb.properties.repository.PropertyRepository;
 import cgimmobilier.mb.properties.services.PropertyService;
 
@@ -21,19 +23,31 @@ public class PropertyServiceImpl implements PropertyService {
 	@Autowired
 	private PropertyRepository propertyRepository;
 	
+	@Autowired
+	private PropertyMapper propertyMapper;
+	
 	@Override
-	public List<Property> findAll() {
-		return this.propertyRepository.findAll();
+	public List<PropertyDto> findAll() {
+
+		List<Property> propertyList = this.propertyRepository.findAll();
+		
+		return this.propertyMapper.mapPropertyListToPropertyDtoList(propertyList);
 	}
 
 	@Override
-	public Property findOneById(Integer id) {
-		return this.propertyRepository.findOneById(id);
+	public PropertyDto findOneById(Integer id) {
+		
+		Property property = this.propertyRepository.findOneById(id);
+		
+		return this.propertyMapper.mapPropertyToPropertyDto(property);
 	}
 
 	@Override
-	public Property createProperty(Property property) {
-		return this.propertyRepository.save(property);
+	public PropertyDto createProperty(Property property) {
+		
+		Property propertyCreated = this.propertyRepository.save(property); 
+		
+		return this.propertyMapper.mapPropertyToPropertyDto(propertyCreated);
 	}
 
 }

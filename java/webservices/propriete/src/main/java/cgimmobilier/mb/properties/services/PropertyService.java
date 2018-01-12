@@ -2,6 +2,7 @@ package cgimmobilier.mb.properties.services;
 
 import java.util.List;
 
+import cgimmobilier.mb.properties.dto.PropertyDto;
 import cgimmobilier.mb.properties.entities.Property;
 
 /**
@@ -11,10 +12,10 @@ import cgimmobilier.mb.properties.entities.Property;
  */
 public interface PropertyService {
 	
-	List<Property> findAll();
+	List<PropertyDto> findAll();
 	
-	Property findOneById(Integer id);
+	PropertyDto findOneById(Integer id);
 	
-	Property createProperty(Property property);
+	PropertyDto createProperty(Property property);
 
 }

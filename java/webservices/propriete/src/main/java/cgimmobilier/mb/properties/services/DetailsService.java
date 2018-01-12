@@ -1,5 +1,6 @@
 package cgimmobilier.mb.properties.services;
 
+import cgimmobilier.mb.properties.dto.DetailsDto;
 import cgimmobilier.mb.properties.entities.Details;
 
 /**
@@ -9,9 +10,9 @@ import cgimmobilier.mb.properties.entities.Details;
  */
 public interface DetailsService {
 	
-	Details findOneById(Integer id);
+	DetailsDto findOneById(Integer id);
 	
-	Details findOneByPropertyId(Integer propertyId);
+	DetailsDto findOneByPropertyId(Integer propertyId);
 	
-	Details createDetails(Details details, Integer propertyId);
+	DetailsDto createDetails(Details details, Integer propertyId);
 }

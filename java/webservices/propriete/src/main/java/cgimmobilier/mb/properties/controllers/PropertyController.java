@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cgimmobilier.mb.properties.dto.PropertyDto;
 import cgimmobilier.mb.properties.entities.Property;
 import cgimmobilier.mb.properties.services.PropertyService;
 
@@ -27,28 +28,28 @@ public class PropertyController {
 	
 	
 	@RequestMapping(value="properties", method=RequestMethod.GET)
-	public ResponseEntity<List<Property>> findAll() {
+	public ResponseEntity<List<PropertyDto>> findAll() {
 		
-		List<Property> properties = propertyService.findAll();
+		List<PropertyDto> propertyDtoList = propertyService.findAll();
 		
-		return new ResponseEntity<List<Property>>(properties, HttpStatus.FOUND);
+		return new ResponseEntity<List<PropertyDto>>(propertyDtoList, HttpStatus.FOUND);
 		
 	}
 	
 	@RequestMapping(value="properties/{id}", method=RequestMethod.GET)
-	public ResponseEntity<Property> findOneById(@PathVariable Integer id) {
+	public ResponseEntity<PropertyDto> findOneById(@PathVariable Integer id) {
 		
-		Property property = propertyService.findOneById(id);
+		PropertyDto propertyDto = propertyService.findOneById(id);
 		
-		return new ResponseEntity<Property>(property, HttpStatus.FOUND);
+		return new ResponseEntity<PropertyDto>(propertyDto, HttpStatus.FOUND);
 	}
 	
 	@RequestMapping(value="/properties", method=RequestMethod.POST)
-	public ResponseEntity<Property> createProperty(@RequestBody Property property) {
+	public ResponseEntity<PropertyDto> createProperty(@RequestBody Property property) {
 		
-		Property propertyCreated = this.propertyService.createProperty(property);
+		PropertyDto propertyDto = this.propertyService.createProperty(property);
 		
-		return new ResponseEntity<Property>(propertyCreated, HttpStatus.CREATED);
+		return new ResponseEntity<PropertyDto>(propertyDto, HttpStatus.CREATED);
 	}
 	
 	
