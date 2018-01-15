@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cgimmobilier.mb.properties.dto.PropertyDto;
-import cgimmobilier.mb.properties.entities.Property;
 import cgimmobilier.mb.properties.services.PropertyService;
-import vo.PropertyVo;
+import cgimmobilier.mb.properties.vo.PropertyVo;
 
 /**
  * 
@@ -28,7 +27,7 @@ public class PropertyController {
 	private PropertyService propertyService;
 	
 	
-	@RequestMapping(value="properties", method=RequestMethod.GET)
+	@RequestMapping(value="/properties", method=RequestMethod.GET)
 	public ResponseEntity<List<PropertyDto>> findAll() {
 		
 		List<PropertyDto> propertyDtoList = propertyService.findAll();
@@ -37,7 +36,7 @@ public class PropertyController {
 		
 	}
 	
-	@RequestMapping(value="properties/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/properties/{id}", method=RequestMethod.GET)
 	public ResponseEntity<PropertyDto> findOneById(@PathVariable Integer id) {
 		
 		PropertyDto propertyDto = propertyService.findOneById(id);

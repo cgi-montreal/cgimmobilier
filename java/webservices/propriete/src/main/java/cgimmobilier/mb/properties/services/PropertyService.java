@@ -3,8 +3,7 @@ package cgimmobilier.mb.properties.services;
 import java.util.List;
 
 import cgimmobilier.mb.properties.dto.PropertyDto;
-import cgimmobilier.mb.properties.entities.Property;
-import vo.PropertyVo;
+import cgimmobilier.mb.properties.vo.PropertyVo;
 
 /**
  * 

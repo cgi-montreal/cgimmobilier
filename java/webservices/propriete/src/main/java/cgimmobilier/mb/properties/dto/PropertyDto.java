@@ -13,7 +13,9 @@ public class PropertyDto {
 	
 	private String description;
 	
-	private DetailsDto detailsDTo;
+	private DetailsDto detailsDto;
+	
+	private CaracteristiquesDto caracteristiquesDto;
 
 	public Integer getId() {
 		return id;
@@ -39,18 +41,26 @@ public class PropertyDto {
 		this.description = description;
 	}
 
-	public DetailsDto getDetailsDTO() {
-		return detailsDTo;
+	public DetailsDto getDetailsDto() {
+		return detailsDto;
 	}
 
-	public void setDetailsDTO(DetailsDto detailsDTO) {
-		this.detailsDTo = detailsDTO;
+	public void setDetailsDto(DetailsDto detailsDTO) {
+		this.detailsDto = detailsDTO;
+	}
+
+	public CaracteristiquesDto getCaracteristiquesDto() {
+		return caracteristiquesDto;
+	}
+
+	public void setCaracteristiquesDto(CaracteristiquesDto caracteristiquesDto) {
+		this.caracteristiquesDto = caracteristiquesDto;
 	}
 
 	@Override
 	public String toString() {
-		return "PropertyDTO [id=" + id + ", reference=" + reference + ", description=" + description + ", detailsDTO="
-				+ detailsDTo + "]";
+		return "PropertyDto [id=" + id + ", reference=" + reference + ", description=" + description + ", detailsDTo="
+				+ detailsDto + ", caracteristiquesDto=" + caracteristiquesDto + "]";
 	}
 
 }

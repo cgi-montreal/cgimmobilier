@@ -10,14 +10,13 @@ import cgimmobilier.mb.properties.entities.Property;
 import cgimmobilier.mb.properties.mappers.PropertyMapper;
 import cgimmobilier.mb.properties.repository.PropertyRepository;
 import cgimmobilier.mb.properties.services.PropertyService;
-import vo.PropertyVo;
+import cgimmobilier.mb.properties.vo.PropertyVo;
 
 /**
  * 
  * @author maxime.buttard
  *
  */
-
 @Service
 public class PropertyServiceImpl implements PropertyService {
 

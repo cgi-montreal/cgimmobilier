@@ -1,7 +1,8 @@
 package cgimmobilier.mb.properties.services.impl;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import cgimmobilier.mb.properties.dto.DetailsDto;
 import cgimmobilier.mb.properties.entities.Details;
@@ -10,13 +11,14 @@ import cgimmobilier.mb.properties.mappers.DetailsMapper;
 import cgimmobilier.mb.properties.repository.DetailsRepository;
 import cgimmobilier.mb.properties.repository.PropertyRepository;
 import cgimmobilier.mb.properties.services.DetailsService;
+import cgimmobilier.mb.properties.vo.DetailsVo;
 
 /**
  * 
  * @author maxime.buttard
  *
  */
-@Repository
+@Service
 public class DetailsServiceImpl implements DetailsService {
 
 	@Autowired
@@ -43,9 +45,11 @@ public class DetailsServiceImpl implements DetailsService {
 	}
 
 	@Override
-	public DetailsDto createDetails(Details details, Integer propertyId) {
+	public DetailsDto createDetails(DetailsVo detailsVo) {
 		
-		Property property = this.propertyRepository.findOneById(propertyId);
+		Property property = this.propertyRepository.findOneById(detailsVo.getPropertyId());
+		
+		Details details = this.detailsMapper.mapDetailsVoToDetails(detailsVo);
 		
 		details.setProperty(property);
 		

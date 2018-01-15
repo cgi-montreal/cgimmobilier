@@ -6,7 +6,7 @@ import org.mapstruct.Mappings;
 
 import cgimmobilier.mb.properties.dto.DetailsDto;
 import cgimmobilier.mb.properties.entities.Details;
-import vo.DetailsVo;
+import cgimmobilier.mb.properties.vo.DetailsVo;
 
 /**
  * 

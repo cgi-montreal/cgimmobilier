@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import cgimmobilier.mb.properties.dto.DetailsDto;
-import cgimmobilier.mb.properties.entities.Details;
 import cgimmobilier.mb.properties.services.DetailsService;
+import cgimmobilier.mb.properties.vo.DetailsVo;
 
 /**
  * 
@@ -24,7 +24,7 @@ public class DetailsController {
 	@Autowired
 	private DetailsService detailsService;
 	
-	@RequestMapping(value="details/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/details/{id}", method=RequestMethod.GET)
 	public ResponseEntity<DetailsDto> findOneById(@PathVariable Integer id) {
 		
 		DetailsDto detailsDto = detailsService.findOneById(id);
@@ -32,13 +32,14 @@ public class DetailsController {
 		return new ResponseEntity<DetailsDto>(detailsDto, HttpStatus.FOUND);
 		
 	}
-	
-//	public ResponseEntity<Details> createDetails(@RequestBody Details details) {
-//		
-//		Details detailsCreated = this.detailsService.createDetails(details, propertyId)
-//		
-//	}
-	
-	
+
+	@RequestMapping(value="/details", method=RequestMethod.POST)
+	public ResponseEntity<DetailsDto> createDetails(@RequestBody DetailsVo detailsVo) {
+		
+		DetailsDto detailsCreated = this.detailsService.createDetails(detailsVo);
+		
+		return new ResponseEntity<DetailsDto>(detailsCreated, HttpStatus.CREATED);
+		
+	}	
 
 }

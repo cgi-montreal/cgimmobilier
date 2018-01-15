@@ -26,6 +26,10 @@ public class Property {
 	@OneToOne
 	@JoinColumn(name="id")
 	private Details details;
+	
+	@OneToOne
+	@JoinColumn(name="id")
+	private Caracteristiques caracteristiques;
 
 	public Integer getId() {
 		return id;
@@ -57,6 +61,14 @@ public class Property {
 
 	public void setDetails(Details details) {
 		this.details = details;
+	}
+
+	public Caracteristiques getCaracteristiques() {
+		return caracteristiques;
+	}
+
+	public void setCaracteristiques(Caracteristiques caracteristiques) {
+		this.caracteristiques = caracteristiques;
 	}
 
 	@Override
